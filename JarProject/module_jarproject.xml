@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_jarproject" default="compile.module.jarproject">
+  <dirname property="module.jarproject.basedir" file="${ant.file.module_jarproject}"/>
+  
+  <property name="module.jdk.home.jarproject" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.jarproject" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.jarproject" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.jarproject" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="jarproject.output.dir" value="${module.jarproject.basedir}/out/production/JarProject"/>
+  <property name="jarproject.testoutput.dir" value="${module.jarproject.basedir}/out/test/JarProject"/>
+  
+  <path id="jarproject.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="jarproject.module.production.classpath">
+    <path refid="${module.jdk.classpath.jarproject}"/>
+  </path>
+  
+  <path id="jarproject.runtime.production.module.classpath">
+    <pathelement location="${jarproject.output.dir}"/>
+  </path>
+  
+  <path id="jarproject.module.classpath">
+    <path refid="${module.jdk.classpath.jarproject}"/>
+    <pathelement location="${jarproject.output.dir}"/>
+  </path>
+  
+  <path id="jarproject.runtime.module.classpath">
+    <pathelement location="${jarproject.testoutput.dir}"/>
+    <pathelement location="${jarproject.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.jarproject">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.jarproject">
+    <patternset refid="excluded.from.module.jarproject"/>
+  </patternset>
+  
+  <path id="jarproject.module.sourcepath">
+    <dirset dir="${module.jarproject.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.jarproject" depends="compile.module.jarproject.production,compile.module.jarproject.tests" description="Compile module JarProject"/>
+  
+  <target name="compile.module.jarproject.production" depends="register.custom.compilers" description="Compile module JarProject; production classes">
+    <mkdir dir="${jarproject.output.dir}"/>
+    <javac2 destdir="${jarproject.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.jarproject}/javac">
+      <compilerarg line="${compiler.args.jarproject}"/>
+      <bootclasspath refid="jarproject.module.bootclasspath"/>
+      <classpath refid="jarproject.module.production.classpath"/>
+      <src refid="jarproject.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.jarproject"/>
+    </javac2>
+    
+    <copy todir="${jarproject.output.dir}">
+      <fileset dir="${module.jarproject.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.jarproject.tests" depends="register.custom.compilers,compile.module.jarproject.production" description="compile module JarProject; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.jarproject" description="cleanup module">
+    <delete dir="${jarproject.output.dir}"/>
+    <delete dir="${jarproject.testoutput.dir}"/>
+  </target>
+</project>

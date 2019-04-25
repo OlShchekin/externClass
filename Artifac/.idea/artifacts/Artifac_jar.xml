@@ -1,0 +1,30 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Artifac:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Artifac_jar</output-path>
+    <root id="archive" name="Artifac.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/src/main/resourses/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="Artifac" />
+      <element id="extracted-dir" path="$USER_HOME$/maven/lib/aopalliance-1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/maven/lib/animal-sniffer-annotations-1.14.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/maven/lib/cdi-api-1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/maven/lib/checker-compat-qual-2.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/maven/lib/commons-cli-1.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/maven/lib/commons-io-2.5.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/maven/lib/commons-lang3-3.8.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/maven/lib/error_prone_annotations-2.1.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/maven/lib/guava-25.1-android.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/maven/lib/maven-compat-3.6.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/maven/lib/maven-artifact-3.6.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/maven/lib/maven-builder-support-3.6.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/maven/lib/jsr305-3.0.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/maven/lib/jsr250-api-1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/maven/lib/jcl-over-slf4j-1.7.25.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/maven/lib/javax.inject-1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/maven/lib/jansi-1.17.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/maven/lib/j2objc-annotations-1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/maven/lib/guice-4.2.1-no_aop.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
